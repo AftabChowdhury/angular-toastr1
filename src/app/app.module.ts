@@ -15,8 +15,24 @@ import {ToastrModule} from 'ngx-toastr';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot() // ToastrModule added
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      closeButton: true,
+      disableTimeOut: false,
+      timeOut: 5000,
+      extendedTimeOut: 1000,
+      enableHtml: false,
+      progressBar: true,
+      toastClass: 'ngx-toastr',
+      positionClass: 'toast-top-center',
+      titleClass: 'toast-title',
+      messageClass: 'toast-message',
+      easing: 'ease-in',
+      easeTime: 300,
+      tapToDismiss: true,
+      onActivateTick: false,
+      progressAnimation: 'decreasing',
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
