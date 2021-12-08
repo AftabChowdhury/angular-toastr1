@@ -14,7 +14,19 @@ export class ToastrComponent implements OnInit {
 
   }
   successToastr(){
-    this.toastr.success('Hello world!', 'Toastr fun!');
+    this.toastr.success('Success Message', 'Success Title');
+  }
+
+  errorToastr(){
+    this.toastr.error('Error Message', 'Error Title');
+  }
+
+  warningToastr(){
+    this.toastr.warning('Warning Message', 'Warning Title');
+  }
+
+  infoToastr(){
+    this.toastr.info('Info Message', 'Info Title');
   }
 
 }
