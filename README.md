@@ -1,27 +1,99 @@
 # AngularToastr
+I here implement a toaster library.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+I found it very useful and easy to use. It is called `ngx-toastr`. You can get more details about the library from the following
+[link](https://www.npmjs.com/package/ngx-toastr).
 
-## Development server
+## Step 1
+```
+npm install ngx-toastr --save
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Step 2
+Add it to your angular.json
+```
+"styles": [
+  "styles.scss",
+  "node_modules/ngx-toastr/toastr.css"
+]
+```
 
-## Code scaffolding
+## Step 3
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Add ToastrModule to app NgModule, make sure you have BrowserAnimationsModule as well
+```
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-## Build
+import { ToastrModule } from 'ngx-toastr';
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+@NgModule({
+  imports: [
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot({
+    closeButton: true,
+      disableTimeOut: false,
+      timeOut: 5000,
+      extendedTimeOut: 1000,
+      enableHtml: false,
+      progressBar: true,
+      toastClass: 'ngx-toastr',
+      positionClass: 'toast-top-center',
+      titleClass: 'toast-title',
+      messageClass: 'toast-message',
+      easing: 'ease-in',
+      easeTime: 300,
+      tapToDismiss: true,
+      onActivateTick: false,
+      progressAnimation: 'decreasing',
+    }), // ToastrModule added
+  ],
+  bootstrap: [App],
+  declarations: [App],
+})
+class MainModule {}
 
-## Running unit tests
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Step 4
+Use the `ToastrService` in the required component. I am giving an example of `ToastrComponent`
+### HTML
+```
+<button type="button" class="btn btn-success" (click)="successToastr()">Success</button>
+<button type="button" class="btn btn-danger" (click)="errorToastr()">Error</button>
+<button type="button" class="btn btn-warning" (click)="warningToastr()">Warning</button>
+<button type="button" class="btn btn-info" (click)="infoToastr()">Info</button>
+```
+### Class `ToastrComponent` 
+```
+import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
-## Running end-to-end tests
+@Component({
+  selector: 'app-toastr',
+  templateUrl: './toastr.component.html',
+  styleUrls: ['./toastr.component.scss']
+})
+export class ToastrComponent {
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+  constructor(private toastr: ToastrService) { }
 
-## Further help
+  successToastr(){
+    this.toastr.success('Success Message', 'Success Title');
+  }
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+  errorToastr(){
+    this.toastr.error('Error Message', 'Error Title');
+  }
+
+  warningToastr(){
+    this.toastr.warning('Warning Message', 'Warning Title');
+  }
+
+  infoToastr(){
+    this.toastr.info('Info Message', 'Info Title');
+  }
+
+}
+```
