@@ -98,4 +98,4 @@ export class ToastrComponent {
 }
 ```
 ## Keyword
-[#AngularToastr](#AngularToastr) [#AngularNotification](#AngularNotification) [#Angular9](#Angular9) 
+[#AngularToastr](#AngularToastr) [#AngularNotification](#AngularNotification) [#Angular9](#Angular9) [#NgxToastr](#NgxToastr)
