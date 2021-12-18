@@ -4,6 +4,8 @@ I here implement a toaster library in Angular 9.
 I found it very useful and easy to use. It is called `ngx-toastr`. You can get more details about the library from the following
 [link](https://www.npmjs.com/package/ngx-toastr).
 
+![image](https://user-images.githubusercontent.com/26978014/146656084-2320678f-c953-4631-ae87-97ee87eef984.png)
+
 ## Step 1
 ```
 npm install ngx-toastr --save
