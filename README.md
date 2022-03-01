@@ -99,5 +99,8 @@ export class ToastrComponent {
 
 }
 ```
+## Medium blog link
+More details can be found in the blog post [link](https://medium.com/@aftab0704022/angular-notification-9eaadb462667).
+
 ## Keyword
-[#AngularToastr](#AngularToastr) [#AngularNotification](#AngularNotification) [#Angular9](#Angular9) [#NgxToastr](#NgxToastr)
+[#AngularToastr](#AngularToastr) [#AngularNotification](#AngularNotification) [#Angular9](#Angular9) [#NgxToastr](#NgxToastr) [#AftabChowdhury](#AftabCHowdhury)
